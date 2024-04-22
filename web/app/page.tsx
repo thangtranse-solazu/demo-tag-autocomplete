@@ -3,9 +3,10 @@ import { useEffect, useState } from "react";
 
 import { Container, Skeleton } from "@mui/material";
 
-import TagAutocomplete from "./components/TagAutocomplete";
-import { debounce } from './utils/debounce';
 import InputCompleteTextField from "./components/InputCompleteTextField";
+import SelectBoxAutocomplete from "./components/SelectBoxAutocomplete";
+import TagAutocomplete from "./components/TagAutocomplete";
+import { debounce } from "./utils/debounce";
 
 const API_ENDPOINT = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:3001";
 const MOCK_USER_ID = 1;
@@ -39,7 +40,6 @@ async function fetchTags(
   const tags = await response.json();
   return tags;
 }
-
 
 export default function Home() {
   const [tags, setTags] = useState<{ id: string; tag: string }[]>([]);
@@ -123,9 +123,26 @@ export default function Home() {
             fullWidth
             label="Tags"
             placeholder="Type a tag and press Enter"
-            style={{ minWidth: 250, maxWidth: 320}}
+            style={{ minWidth: 250, maxWidth: 320 }}
           />
         )}
+        renderOptionCustom={({ props, option, selected }) => {
+          console.log({ props, option, selected });
+          return (
+            <SelectBoxAutocomplete
+              {...props}
+              onClick={(event: React.MouseEvent) => {
+                if(selected) return;
+                props.onClick(event);
+              }}
+              checkboxProps={{
+                disabled: selected,
+              }}
+              value={option}
+              isSelected={selected}
+            />
+          );
+        }}
       />
     </Container>
   );

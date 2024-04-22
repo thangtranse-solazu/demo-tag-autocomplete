@@ -16,4 +16,9 @@ export const Colors = {
   ///////////////
   white: "#fff",
   black: "#000",
+
+  ///////////////
+  // PayerPrice
+  ///////////////
+  ppColor: "#0e2a4d"
 };
