@@ -25,9 +25,7 @@
   "tags_record_user": [
     {
       "id": "1",
-      "tags": [
-        "test01"
-      ]
+      "tags": []
     }
   ]
 }

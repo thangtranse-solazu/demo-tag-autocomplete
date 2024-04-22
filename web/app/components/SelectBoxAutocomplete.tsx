@@ -1,6 +1,8 @@
 import { ReactNode } from "react";
 
-import { Checkbox, CheckboxProps } from "@mui/material";
+import { CheckboxProps } from "@mui/material";
+
+import Checkbox from "../core/ui/Checkbox";
 
 const SelectBoxAutocomplete = ({
   checkboxProps,

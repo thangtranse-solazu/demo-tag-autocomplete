@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 
 import { Container, Skeleton } from "@mui/material";
 
-import InputCompleteTextField from "./components/InputCompleteTextField";
+import InputCompleteTextField from "./core/ui/TextField";
 import SelectBoxAutocomplete from "./components/SelectBoxAutocomplete";
 import TagAutocomplete from "./components/TagAutocomplete";
 import { debounce } from "./utils/debounce";
